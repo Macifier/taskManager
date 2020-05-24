@@ -1,0 +1,36 @@
+.Container {
+  overflow-y: scroll;
+  display: flex;
+
+  flex-direction: column;
+  height: 60vh;
+
+  width: 80vh;
+  border: 2px solid black;
+  text-align: center;
+}
+.Task {
+  position: relative;
+  color: white;
+  background-color: blue;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #fff;
+}
+.Task span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-style: italic;
+  font-weight: 500;
+}
+.Completed {
+  text-decoration: line-through;
+}
+.DeleteIcon {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+}

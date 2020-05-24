@@ -1,0 +1,28 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 5vh;
+  width: 80vh;
+}
+.TaskInput {
+  flex-basis: 90%;
+}
+.AddButton {
+  flex-basis: 10%;
+}
+@media (max-width: 600px) {
+  .Container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vh;
+    height: auto;
+  }
+  .TaskInput,
+  .AddButton {
+    margin-left: 80px;
+    align-self: stretch;
+  }
+}

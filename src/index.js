@@ -1,14 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import tasksListReducer from "./containers/TasksList/store/reducer/tasksListReducer";
+const logger = (store) => {
+  return (next) => {
+    return (action) => {
+      console.log("Action Dispatched", action);
+      const result = next(action);
+      console.log("Updated State", store.getState());
+      return result;
+    };
+  };
+};
+const rootReducer = combineReducers({
+  tasks: tasksListReducer,
+});
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
